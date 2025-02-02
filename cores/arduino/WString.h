@@ -110,6 +110,8 @@ class String {
     unsigned char concat(double num);
     unsigned char concat(const __FlashStringHelper *str);
 
+    unsigned char concat(const char *cstr, unsigned int length);
+
     // if there's not enough memory for the concatenated value, the string
     // will be left unchanged (but this isn't signalled in any way)
     String &operator += (const String &rhs)
@@ -281,7 +283,6 @@ class String {
     void init(void);
     void invalidate(void);
     unsigned char changeBuffer(unsigned int maxStrLen);
-    unsigned char concat(const char *cstr, unsigned int length);
 
     // copy and move
     String &copy(const char *cstr, unsigned int length);
